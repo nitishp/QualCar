@@ -8,14 +8,23 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="@string/permission_string"
         android:id="@+id/textView2"
-        android:layout_weight="1" />
+        android:layout_weight="80" />
 
-    <Switch
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/switch_string"
-        android:id="@+id/row_switch"
-        android:checked="false" />
+        android:layout_weight="20"
+        android:gravity="center_vertical|center_horizontal">
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/switch_string"
+            android:id="@+id/row_switch"
+            android:checked="false"
+            android:gravity="center_vertical|center_horizontal" />
+    </LinearLayout>
 </LinearLayout>
