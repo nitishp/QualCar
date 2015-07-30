@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">QualCar</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="closeDrawer">Close Drawer</string>
+    <string name="name_string">SHFHSDHFH</string>
+    <string name="permissions_string">PERMISSIONS</string>
+    <string name="rules_string">RULES</string>
+</resources>
