@@ -24,6 +24,14 @@
             android:name=".AddRuleActivity"
             android:label="QualCar add rule">
         </activity>
+        <activity
+            android:name=".view.graph_activity"
+            android:label="@string/title_activity_graph_activity"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qualcar.com.qualcar.MainScreen" />
+        </activity>
     </application>
 
 </manifest>

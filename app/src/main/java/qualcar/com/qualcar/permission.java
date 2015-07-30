@@ -5,17 +5,26 @@ package qualcar.com.qualcar;
  */
 public class permission {
     int id;
+    boolean state;
+    String permission_string;
 
-    // setters
-    public void setId(int id) {
+    public permission(int id, boolean state, String permission_string){
         this.id = id;
+        this.state = state;
+        this.permission_string = permission_string;
     }
+    // setters
+    public void set_id(int id) {this.id = id;}
 
+    public void set_state(boolean state) {this.state = state;}
+
+    public void set_string(String permission_string) {this.permission_string = permission_string;}
     // getters
-    public long getId() {
-        return this.id;
-    }
+    public boolean get_state() {return this.state;}
 
+    public long get_id() {return this.id;}
+
+    public String get_string(){return this.permission_string;}
 
     public boolean equals(permission other_obj) {
         if (other_obj == null) return false;
