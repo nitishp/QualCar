@@ -19,7 +19,7 @@ import qualcar.com.qualcar.view.SlidingTabLayout;
 
 public class MainScreen extends AppCompatActivity {
 
-    String TITLES[] = {"Settings", "Stats", "Profiles"};
+    String TITLES[] = {"Add Rules", "Stats", "Profiles"};
     int ICONS[] = {R.drawable.config, R.drawable.stats, R.drawable.profiles};
     public static String FAVORITES[] = {"LOCK CAR", "UNLOCK CAR", "START CAR"};
     public static String ACTIONS[] = {"LOCK CAR", "UNLOCK CAR", "START CAR", "STOP CAR", "DONE"};
@@ -105,17 +105,20 @@ public class MainScreen extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
-    public void launchActivity()
+    public void launchActivity(String item)
     {
-        Intent intent = new Intent(this, profile_activity.class);
-        startActivity(intent);
+        if(item == "Add Rules")
+        {
+            Intent intent = new Intent(this, AddRuleActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this, profile_activity.class);
+            startActivity(intent);
+        }
     }
 }
