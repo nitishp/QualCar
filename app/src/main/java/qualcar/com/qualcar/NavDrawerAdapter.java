@@ -59,7 +59,9 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
 
         @Override
         public void onClick(View v) {
-            mActivity.launchActivity();
+            TextView textView = (TextView) v.findViewById(R.id.rowText);
+            String text = textView.getText().toString();
+            mActivity.launchActivity(text);
         }
     }
 

@@ -18,7 +18,11 @@
         </activity>
         <activity
             android:name=".profile_activity"
-            android:label="QualCar profile" >
+            android:label="QualCar profile">
+        </activity>
+        <activity
+            android:name=".AddRuleActivity"
+            android:label="QualCar add rule">
         </activity>
         <activity
             android:name=".view.graph_activity"

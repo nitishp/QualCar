@@ -1,24 +1,21 @@
 package qualcar.com.qualcar;
 
-/**
- * Created by Nitish on 7/29/2015.
- */
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
-public class profile_activity extends AppCompatActivity {
-
+/**
+ * Created by Nitish on 7/29/2015.
+ */
+public class AddRuleActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_activity);
+        setContentView(R.layout.add_rule_activity);
 
         mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mToolbar);
