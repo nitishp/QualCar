@@ -1,38 +1,50 @@
-package qualcar.com.qualcar.view;
+package qualcar.com.qualcar;
 
+/**
+ * Created by Nitish on 7/30/2015.
+ */
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.filter.Approximator;
+import com.github.mikephil.charting.data.filter.Approximator.ApproximatorType;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-import qualcar.com.qualcar.R;
-
-public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+public class CubicLineChartActivity extends Activity implements OnSeekBarChangeListener {
 
     private LineChart mChart;
     private SeekBar mSeekBarX, mSeekBarY;
+    private TextView tvX, tvY;
 
     private Typeface tf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graph_activity);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.line_chart);
+
+        tvX = (TextView) findViewById(R.id.tvXMax);
+        tvY = (TextView) findViewById(R.id.tvYMax);
 
         mSeekBarX = (SeekBar) findViewById(R.id.seekBar1);
         mSeekBarY = (SeekBar) findViewById(R.id.seekBar2);
@@ -46,24 +58,12 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
         mChart = (LineChart) findViewById(R.id.chart1);
         // if enabled, the chart will always start at zero on the y-axis
 
-        XAxis xAxis = mChart.getXAxis();
-        xAxis.setEnabled(true);
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setTextSize(10f);
-        xAxis.setTextColor(Color.BLACK);
-        xAxis.setDrawAxisLine(true);
-        xAxis.setDrawGridLines(true);
-        xAxis.setAvoidFirstLastClipping(true);
-
-        YAxis yAxis = mChart.getAxisLeft();
-        yAxis.setEnabled(true);
-        yAxis.setDrawAxisLine(true);
-        yAxis.setDrawGridLines(true);
-
         // no description text
-        mChart.setDescription("Temperature over the last few days");
+        mChart.setDescription("");
+
         // enable value highlighting
         mChart.setHighlightEnabled(true);
+
         // enable touch gestures
         mChart.setTouchEnabled(true);
 
@@ -73,9 +73,19 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
 
         // if disabled, scaling can be done on x- and y-axis separately
         mChart.setPinchZoom(false);
+
         mChart.setDrawGridBackground(false);
 
-//        tf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
+        tf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
+
+        XAxis x = mChart.getXAxis();
+        x.setTypeface(tf);
+        x.setEnabled(false);
+
+        YAxis y = mChart.getAxisLeft();
+        y.setTypeface(tf);
+        y.setLabelCount(5, false);
+        y.setEnabled(false);
 
         mChart.getAxisRight().setEnabled(false);
 
@@ -90,26 +100,23 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
         mChart.invalidate();
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_graph_activity, menu);
+        getMenuInflater().inflate(R.menu.menu_main_screen, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+        tvX.setText("" + (mSeekBarX.getProgress() + 1));
+        tvY.setText("" + (mSeekBarY.getProgress()));
+
         setData(mSeekBarX.getProgress() + 1, mSeekBarY.getProgress());
 
         // redraw
@@ -150,7 +157,7 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
         LineDataSet set1 = new LineDataSet(vals1, "DataSet 1");
         set1.setDrawCubic(true);
         set1.setCubicIntensity(0.2f);
-        set1.setDrawFilled(true);
+        //set1.setDrawFilled(true);
         set1.setDrawCircles(false);
         set1.setLineWidth(2f);
         set1.setCircleSize(5f);
@@ -161,7 +168,7 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
 
         // create a data object with the datasets
         LineData data = new LineData(xVals, set1);
-        //data.setValueTypeface(tf);
+        data.setValueTypeface(tf);
         data.setValueTextSize(9f);
         data.setDrawValues(false);
 
