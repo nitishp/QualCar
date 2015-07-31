@@ -8,41 +8,102 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SeekBar;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.PercentFormatter;
 
 import java.util.ArrayList;
 
 import qualcar.com.qualcar.R;
 
-public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+
+// TODO: Add TextView Headers to each chart
+public class graph_activity extends AppCompatActivity {
 
     private LineChart mChart;
-    private SeekBar mSeekBarX, mSeekBarY;
+    private PieChart pieChart;
 
-    private Typeface tf;
+    // TODO: Change Hardcoded values for piechart
+    //  X: Names
+    // Y: Percentages
+    private float[] yData = { 5, 10, 15, 30, 40 };
+    private String[] xData = { "Sony", "Huawei", "LG", "Apple", "Samsung" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_activity);
 
-        mSeekBarX = (SeekBar) findViewById(R.id.seekBar1);
-        mSeekBarY = (SeekBar) findViewById(R.id.seekBar2);
+        // Pie Chart
+        // configure pie chart
+        pieChart = (PieChart) findViewById(R.id.pie_chart);
+        pieChart.setUsePercentValues(true);
+        pieChart.setDescription("Percentage Time Spent Driving");
 
-        mSeekBarX.setProgress(45);
-        mSeekBarY.setProgress(100);
+        // enable hole and configure
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColorTransparent(true);
+        pieChart.setHoleRadius(7);
+        pieChart.setTransparentCircleRadius(10);
 
-        mSeekBarY.setOnSeekBarChangeListener(this);
-        mSeekBarX.setOnSeekBarChangeListener(this);
+        // enable rotation of the chart by touch
+        pieChart.setRotationAngle(0);
+        pieChart.setRotationEnabled(true);
 
+        // set a chart value selected listener
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+
+            @Override
+            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                // display msg when value selected
+                if (e == null)
+                    return;
+
+                Toast.makeText(graph_activity.this,
+                        xData[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+        // add data
+        addData();
+
+        // customize legends
+        Legend l = pieChart.getLegend();
+        l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
+        l.setXEntrySpace(7);
+        l.setYEntrySpace(5);
+
+        // Bar chart
+        BarChart chart = (BarChart) findViewById(R.id.bar_chart);
+        BarData data = new BarData(getXAxisValues(), getDataSet());
+        chart.setData(data);
+        chart.setDescription("Miles Per Gallon");
+        chart.animateXY(2000, 2000);
+        chart.invalidate();
+
+        // Line chart
         mChart = (LineChart) findViewById(R.id.chart1);
         // if enabled, the chart will always start at zero on the y-axis
 
@@ -59,33 +120,23 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
         yAxis.setEnabled(true);
         yAxis.setDrawAxisLine(true);
         yAxis.setDrawGridLines(true);
-
         // no description text
         mChart.setDescription("Temperature over the last few days");
         // enable value highlighting
         mChart.setHighlightEnabled(true);
         // enable touch gestures
         mChart.setTouchEnabled(true);
-
         // enable scaling and dragging
         mChart.setDragEnabled(true);
         mChart.setScaleEnabled(true);
-
         // if disabled, scaling can be done on x- and y-axis separately
         mChart.setPinchZoom(false);
         mChart.setDrawGridBackground(false);
-
-//        tf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
-
         mChart.getAxisRight().setEnabled(false);
-
         // add data
         setData(45, 100);
-
         mChart.getLegend().setEnabled(false);
-
         mChart.animateXY(2000, 2000);
-
         // dont forget to refresh the drawing
         mChart.invalidate();
     }
@@ -106,26 +157,6 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        setData(mSeekBarX.getProgress() + 1, mSeekBarY.getProgress());
-
-        // redraw
-        mChart.invalidate();
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
-
     }
 
     // TODO: Hardcode temperature data over the last few days
@@ -167,5 +198,111 @@ public class graph_activity extends AppCompatActivity implements SeekBar.OnSeekB
 
         // set data
         mChart.setData(data);
+    }
+
+    // TODO: ADD something that implies miles per gallon
+    private ArrayList<BarDataSet> getDataSet() {
+        ArrayList<BarDataSet> dataSets = null;
+
+        ArrayList<BarEntry> valueSet1 = new ArrayList<>();
+        BarEntry v1e1 = new BarEntry(110.000f, 0); // Jan
+        valueSet1.add(v1e1);
+        BarEntry v1e2 = new BarEntry(40.000f, 1); // Feb
+        valueSet1.add(v1e2);
+        BarEntry v1e3 = new BarEntry(60.000f, 2); // Mar
+        valueSet1.add(v1e3);
+        BarEntry v1e4 = new BarEntry(30.000f, 3); // Apr
+        valueSet1.add(v1e4);
+        BarEntry v1e5 = new BarEntry(90.000f, 4); // May
+        valueSet1.add(v1e5);
+        BarEntry v1e6 = new BarEntry(100.000f, 5); // Jun
+        valueSet1.add(v1e6);
+
+        ArrayList<BarEntry> valueSet2 = new ArrayList<>();
+        BarEntry v2e1 = new BarEntry(150.000f, 0); // Jan
+        valueSet2.add(v2e1);
+        BarEntry v2e2 = new BarEntry(90.000f, 1); // Feb
+        valueSet2.add(v2e2);
+        BarEntry v2e3 = new BarEntry(120.000f, 2); // Mar
+        valueSet2.add(v2e3);
+        BarEntry v2e4 = new BarEntry(60.000f, 3); // Apr
+        valueSet2.add(v2e4);
+        BarEntry v2e5 = new BarEntry(20.000f, 4); // May
+        valueSet2.add(v2e5);
+        BarEntry v2e6 = new BarEntry(80.000f, 5); // Jun
+        valueSet2.add(v2e6);
+
+        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Brand 1");
+        barDataSet1.setColor(Color.rgb(0, 155, 0));
+        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Brand 2");
+        barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        dataSets = new ArrayList<>();
+        dataSets.add(barDataSet1);
+        dataSets.add(barDataSet2);
+        return dataSets;
+    }
+
+    private ArrayList<String> getXAxisValues() {
+        ArrayList<String> xAxis = new ArrayList<>();
+        xAxis.add("JAN");
+        xAxis.add("FEB");
+        xAxis.add("MAR");
+        xAxis.add("APR");
+        xAxis.add("MAY");
+        xAxis.add("JUN");
+        return xAxis;
+    }
+
+    private void addData() {
+        ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+
+        for (int i = 0; i < yData.length; i++)
+            yVals1.add(new Entry(yData[i], i));
+
+        ArrayList<String> xVals = new ArrayList<String>();
+
+        for (int i = 0; i < xData.length; i++)
+            xVals.add(xData[i]);
+
+        // create pie data set
+        PieDataSet dataSet = new PieDataSet(yVals1, "Market Share");
+        dataSet.setSliceSpace(3);
+        dataSet.setSelectionShift(5);
+
+        // add many colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.COLORFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+        dataSet.setColors(colors);
+
+        // instantiate pie data object now
+        PieData data = new PieData(xVals, dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(11f);
+        data.setValueTextColor(Color.GRAY);
+
+        pieChart.setData(data);
+
+        // undo all highlights
+        pieChart.highlightValues(null);
+
+        // update pie chart
+        pieChart.invalidate();
     }
 }
