@@ -28,6 +28,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="qualcar.com.qualcar.MainScreen" />
         </activity>
+        <activity
+            android:name=".view.rules"
+            android:label="@string/title_activity_rules" >
+        </activity>
     </application>
 
 </manifest>

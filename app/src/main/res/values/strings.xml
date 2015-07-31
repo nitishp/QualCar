@@ -19,4 +19,6 @@
     <string name="action_string">action</string>
     <string name="title_activity_graph_activity">graph_activity</string>
     <string name="permission_string">PERMISSION 1</string>
+    <string name="title_activity_rules">rules</string>
+    <string name="add_rule_string">Add Rule</string>
 </resources>
