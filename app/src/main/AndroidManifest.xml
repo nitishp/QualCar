@@ -25,6 +25,10 @@
             android:label="QualCar add rule">
         </activity>
         <activity
+            android:name=".ProfileSelectorActivity"
+            android:label="QualCar switch profiles">
+        </activity>
+        <activity
             android:name=".view.graph_activity"
             android:label="@string/title_activity_graph_activity"
             android:parentActivityName=".MainScreen" >

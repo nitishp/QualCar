@@ -115,6 +115,17 @@ public class MainScreen extends AppCompatActivity {
             Intent intent = new Intent(this, AddRuleActivity.class);
             startActivity(intent);
         }
+        else if(item == "Profiles")
+        {
+            Intent intent = new Intent(this, ProfileSelectorActivity.class);
+            startActivity(intent);
+            //ProfileSelectorActivity
+        }
+        else if(item == "Stats")
+        {
+            Intent intent = new Intent(this, AddRuleActivity.class);
+            startActivity(intent);
+        }
         else
         {
             Intent intent = new Intent(this, profile_activity.class);

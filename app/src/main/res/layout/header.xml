@@ -12,7 +12,7 @@
         android:layout_weight="8"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:src="@drawable/aka"
+        android:src="@drawable/profile_pic_nitish"
         android:id="@+id/circleView" />
 
     <TextView
