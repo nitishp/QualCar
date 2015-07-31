@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import qualcar.com.qualcar.view.graph_activity;
 
 import qualcar.com.qualcar.view.SlidingTabLayout;
 
@@ -123,7 +124,7 @@ public class MainScreen extends AppCompatActivity {
         }
         else if(item == "Stats")
         {
-            Intent intent = new Intent(this, AddRuleActivity.class);
+            Intent intent = new Intent(this, graph_activity.class);
             startActivity(intent);
         }
         else
