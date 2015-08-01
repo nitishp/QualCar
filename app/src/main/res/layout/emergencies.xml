@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="center"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:contentPadding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/action_type_button_text"
+                android:layout_width="99dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="CALL TAXI"
+                android:textColor="@color/tabsScrollColor"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="center"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:contentPadding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="CALL AAA"
+                android:textColor="@color/tabsScrollColor"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="center"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:contentPadding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Call 911"
+                android:textColor="@color/tabsScrollColor"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+</LinearLayout>

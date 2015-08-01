@@ -30,10 +30,16 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             ListFavoritesFragment tab1 = new ListFavoritesFragment();
             return tab1;
         }
-        else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
-        {
+        else if (position == 1) {
             ListActionsFragment tab2 = new ListActionsFragment();
             return tab2;
+        }
+        else if (position == 2 ) {
+            ListEmergencyFragment tab3 = new ListEmergencyFragment();
+            return tab3;
+        }
+        else {
+            return null;
         }
     }
 

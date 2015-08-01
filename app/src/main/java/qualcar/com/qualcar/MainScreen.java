@@ -46,7 +46,7 @@ public class MainScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set up the viewpager
-        CharSequence[] tabTitles = {"Favorites", "Actions"};
+        CharSequence[] tabTitles = {"Favorites", "Actions", "Emergencies"};
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabTitles, tabTitles.length);
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(viewPagerAdapter);
