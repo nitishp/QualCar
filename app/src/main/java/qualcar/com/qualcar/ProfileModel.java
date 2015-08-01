@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Nitish on 7/29/2015.
  */
+//TODO: Add graphs information
 public class ProfileModel {
     int id;
     String name;

@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Created by Greg-K`nox on 7/30/2015.
  */
 public class ProfileCreator {
-    public ProfileModel create_profiles(int userID) {
+    public static ProfileModel create_profiles(int userID) {
         //person 1 Nitish
         ProfileModel user1 = new ProfileModel("Nitish");
         user1.set_id(1);
@@ -51,6 +51,10 @@ public class ProfileCreator {
                 new ArrayList<String>(Arrays.asList("Dist=7")),
                 new ArrayList<String>(Arrays.asList("honk_horn","stop_car"))
         ));
+        user3.add_contextual_rule(new contextual_object(1,
+                new ArrayList<String>(Arrays.asList("Time=7:22")),
+                new ArrayList<String>(Arrays.asList("set_ac","open_doors"))
+        ));
         user3.set_configuration( new Configuration(3,99,"user_account","Spanish"));
 
         //person 4 Enrique
@@ -83,15 +87,15 @@ public class ProfileCreator {
         ));
         user5.set_configuration( new Configuration(37,35,"user_account","English"));
 
-        if(userID == 1)
+        if(userID == 0)
             return user1;
-        if(userID == 2)
+        if(userID == 1)
             return user2;
-        if(userID == 3)
+        if(userID == 2)
             return user3;
-        if(userID == 4)
+        if(userID == 3)
             return user4;
-        if(userID == 5)
+        if(userID == 4)
             return user5;
         else
             return null;
