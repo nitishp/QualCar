@@ -5,10 +5,11 @@ import java.util.ArrayList;
 /**
  * Created by Nitish on 7/29/2015.
  */
+//TODO: Add graphs information
 public class ProfileModel {
     int id;
     String name;
-    String picture_location;
+    int picture_location;
     ArrayList<permission> permissions;
     int state;
     ArrayList<contextual_object> contextual_information;
@@ -21,7 +22,7 @@ public class ProfileModel {
         contextual_information = new ArrayList<contextual_object>();
     }
 
-    public ProfileModel(int id, String new_name, String photo, ArrayList<permission> new_permissions,ArrayList<contextual_object> cntx,Configuration new_config){
+    public ProfileModel(int id, String new_name, int photo, ArrayList<permission> new_permissions,ArrayList<contextual_object> cntx,Configuration new_config){
         state=1;
         name = new_name;
         picture_location=photo;
@@ -48,11 +49,11 @@ public class ProfileModel {
         return state;
     }
 
-    public String get_picture_location(){
+    public int get_picture_location(){
         return picture_location;
     }
 
-    public void set_picture(String picture_address){
+    public void set_picture(int picture_address){
         picture_location = picture_address;
     }
 

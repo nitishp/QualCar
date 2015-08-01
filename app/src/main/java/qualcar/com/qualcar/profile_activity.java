@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class profile_activity extends AppCompatActivity {
+public class profile_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Toolbar mToolbar;
     private ListView permission_list_view;
@@ -70,6 +72,7 @@ public class profile_activity extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter3);
+        spinner.setOnItemSelectedListener(this);
 
     }
 
@@ -90,14 +93,25 @@ public class profile_activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //TODO: FIX the action and condition for the contextual object
-    //TODO: Use this function to populate the activity
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        ProfileModel User = ProfileCreator.create_profiles(pos);
+        populate_arrays(User);
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+
     //TODO: Change the name of the spinner to the current user
     public boolean populate_arrays(ProfileModel user){
         ArrayList<permission> permissions = new ArrayList<permission>();
         ArrayList<contextual_object> contextual_objects = new ArrayList<contextual_object>();
         ArrayList<HashMap<String, String>> permission_array = new ArrayList<HashMap<String, String>>();
         ArrayList<HashMap<String, String>> rule_array = new ArrayList<HashMap<String, String>>();
+        String name = user.get_name();
 
         permissions = user.get_permissions();
         contextual_objects = user.get_rules();
@@ -107,14 +121,28 @@ public class profile_activity extends AppCompatActivity {
             map.put("itemId", String.valueOf(counter));
             map.put("permission", new_permission.get_string());
             permission_array.add(map);
+            counter = counter + 1;
         }
         counter = 0;
         for (contextual_object new_rule: contextual_objects) {
             HashMap<String, String> map = new HashMap<String, String>();
             map.put("itemId", String.valueOf(counter));
-            map.put("action", new_rule.get_action().get(0));
-            map.put("condition", new_rule.get_condition().get(0));
-            permission_array.add(map);
+            String new_action = "";
+            ArrayList<String> array_actions = new_rule.get_action();
+            for(String conc_action: array_actions){
+                new_action += conc_action;
+                new_action += "\n";
+            }
+            map.put("action", new_action);
+            String new_condition = "";
+            ArrayList<String> array_condition = new_rule.get_condition();
+            for(String conc_condition: array_condition){
+                new_condition += conc_condition;
+                new_condition += "\n";
+            }
+            map.put("condition", new_condition);
+            rule_array.add(map);
+            counter = counter + 1;
         }
 
         rules_row adapter = new rules_row(this, rule_array);

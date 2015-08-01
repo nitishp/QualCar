@@ -19,7 +19,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="98dp"
         android:layout_toRightOf="@+id/numberPicker1"
-        android:text="Cancel" />
+        android:text="Cancel"
+        style="?android:attr/borderlessButtonStyle"/>
 
     <Button
         android:id="@+id/set"
@@ -29,6 +30,7 @@
         android:layout_alignBottom="@+id/cancel"
         android:layout_marginRight="16dp"
         android:layout_toLeftOf="@+id/numberPicker1"
-        android:text="Set" />
+        android:text="Set"
+        style="?android:attr/borderlessButtonStyle"/>
 
 </RelativeLayout>

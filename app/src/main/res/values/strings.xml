@@ -17,10 +17,11 @@
         condition4
     </string>
     <string-array name="users_string">
+        <item>Nitish</item>
+        <item>Hanna</item>
+        <item>Ryan</item>
         <item>Enrique</item>
         <item>Greg</item>
-        <item>Nitish</item>
-        <item>Ryan</item>
     </string-array>
     <string name="do_string">DO</string>
     <string name="action_string">action</string>

@@ -61,4 +61,11 @@
             android:text="Change Temperature"/>
     </LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Rule"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/add_to_db"/>
+
 </LinearLayout>

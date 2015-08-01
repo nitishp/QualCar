@@ -28,7 +28,6 @@
             android:text="@string/condition_string"
             android:id="@+id/condition"
             android:gravity="center_vertical|center_horizontal"
-            android:maxLines="3"
             android:layout_weight="0.41"
             android:layout_gravity="center" />
     </LinearLayout>
