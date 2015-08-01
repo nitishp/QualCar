@@ -64,9 +64,19 @@ public class ProfileModel {
         configurations  = new_configuration;
     }
 
+    public ArrayList<contextual_object> get_rules(){
+        return contextual_information;
+    }
+
+    public ArrayList<permission> get_permissions(){
+        return permissions;
+    }
+
     public void add_contextual_rule(contextual_object new_rule){
         contextual_information.add(new_rule);
     }
+
+
 
     //delete
     public void remove_permission(permission permission_to_be_removed){

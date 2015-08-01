@@ -20,8 +20,8 @@ import qualcar.com.qualcar.view.SlidingTabLayout;
 
 public class MainScreen extends AppCompatActivity {
 
-    String TITLES[] = {"Add Rules", "Stats", "Profiles"};
-    int ICONS[] = {R.drawable.config, R.drawable.stats, R.drawable.profiles};
+    String TITLES[] = {"Add Rules", "Stats", "Profiles", "My info"};
+    int ICONS[] = {R.drawable.config, R.drawable.stats, R.drawable.profiles, R.drawable.my_info};
     public static String FAVORITES[] = {"LOCK CAR", "UNLOCK CAR", "START CAR"};
     public static String ACTIONS[] = {"LOCK CAR", "UNLOCK CAR", "START CAR", "STOP CAR", "DONE"};
 

@@ -8,13 +8,20 @@
     <string name="name_string">NAME</string>
     <string name="permissions_string">PERMISSIONS</string>
     <string name="rules_string">RULES</string>
-    <string name="switch_string">ON</string>
+    <string name="switch_string_on">ON</string>
+    <string name="switch_string_off">OFF</string>
     <string name="if_string">IF</string>
     <string name="condition_string">condition1
         condition2
         condition3
         condition4
     </string>
+    <string-array name="users_string">
+        <item>Enrique</item>
+        <item>Greg</item>
+        <item>Nitish</item>
+        <item>Ryan</item>
+    </string-array>
     <string name="do_string">DO</string>
     <string name="action_string">action</string>
     <string name="title_activity_graph_activity">graph_activity</string>
