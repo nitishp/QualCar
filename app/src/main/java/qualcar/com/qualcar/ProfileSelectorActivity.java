@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 
 /**
  * Created by Greg-Knox on 7/30/2015.
@@ -89,6 +90,8 @@ public class ProfileSelectorActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Spinner spinner = (Spinner) findViewById(R.id.user_list);
+        spinner.performClick();
         return super.onOptionsItemSelected(item);
     }
 }

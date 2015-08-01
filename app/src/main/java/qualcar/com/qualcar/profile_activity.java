@@ -105,8 +105,6 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
         // Another interface callback
     }
 
-    //TODO: FIX the action and condition for the contextual object, right now is only showing the
-    // first condition, should merge all the string into one separated by new lines
     //TODO: Change the name of the spinner to the current user
     public boolean populate_arrays(ProfileModel user){
         ArrayList<permission> permissions = new ArrayList<permission>();
@@ -129,8 +127,20 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
         for (contextual_object new_rule: contextual_objects) {
             HashMap<String, String> map = new HashMap<String, String>();
             map.put("itemId", String.valueOf(counter));
-            map.put("action", new_rule.get_action().get(0));
-            map.put("condition", new_rule.get_condition().get(0));
+            String new_action = "";
+            ArrayList<String> array_actions = new_rule.get_action();
+            for(String conc_action: array_actions){
+                new_action += conc_action;
+                new_action += "\n";
+            }
+            map.put("action", new_action);
+            String new_condition = "";
+            ArrayList<String> array_condition = new_rule.get_condition();
+            for(String conc_condition: array_condition){
+                new_condition += conc_condition;
+                new_condition += "\n";
+            }
+            map.put("condition", new_condition);
             rule_array.add(map);
             counter = counter + 1;
         }
