@@ -23,6 +23,9 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
     private String mNavTitles[]; // String Array to store the passed titles Value from MainActivity.java
     private int mIcons[];       // Int Array to store the passed icons resource value from MainActivity.java
 
+    private String mProfileName;
+    private int mProfilePic;
+
     private static MainScreen mActivity;
 
     // Creating a ViewHolder which extends the RecyclerView View Holder
@@ -67,11 +70,14 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
 
 
 
-    NavDrawerAdapter(String Titles[], int Icons[], MainScreen activity)
+    NavDrawerAdapter(String Titles[], int Icons[], String profileName, int profilePic, MainScreen activity)
     {
         mNavTitles = Titles;
         mIcons = Icons;
         mActivity = activity;
+
+        mProfileName = profileName;
+        mProfilePic = profilePic;
     }
 
     //Below first we override the method onCreateViewHolder which is called when the ViewHolder is
@@ -85,12 +91,9 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row, parent, false); //Inflating the layout
             ViewHolder vhItem = new ViewHolder(v,viewType); //Creating ViewHolder and passing the object of type view
             return vhItem; // Returning the created object
-
             //inflate your layout and pass it to view holder
 
         } else if (viewType == TYPE_HEADER) {
-
-
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.header,parent,false); //Inflating the layout
             //Set the header to take up 1/3 of the height
             LinearLayout layout = (LinearLayout) v.findViewById(R.id.header);
@@ -116,6 +119,11 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
             // position by 1 and pass it to the holder while setting the text and image
             holder.textView.setText(mNavTitles[position - 1]); // Setting the Text with the array of our Titles
             holder.imageView.setImageResource(mIcons[position -1]);// Settimg the image with array of our icons
+        }
+        else
+        {
+            holder.Name.setText(mProfileName);
+            holder.profile.setImageResource(mProfilePic);
         }
     }
 
