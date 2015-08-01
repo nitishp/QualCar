@@ -1,12 +1,14 @@
 package qualcar.com.qualcar;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,10 +23,18 @@ import qualcar.com.qualcar.view.SlidingTabLayout;
 
 public class MainScreen extends AppCompatActivity {
 
-    String TITLES[] = {"Add Rules", "Stats", "Profiles", "My info"};
-    int ICONS[] = {R.drawable.config, R.drawable.stats, R.drawable.profiles, R.drawable.my_info};
+    String TITLES[] = {"Add Rules", "Stats", "Profiles", "Switch User"};
+    int ICONS[] = {R.drawable.config, R.drawable.stats, R.drawable.profiles, R.drawable.switch_user};
     public static String FAVORITES[] = {"LOCK CAR", "UNLOCK CAR", "START CAR"};
     public static String ACTIONS[] = {"LOCK CAR", "UNLOCK CAR", "START CAR", "STOP CAR", "DONE"};
+
+    public static ProfileModel nitish = ProfileCreator.populateNitish();
+    public static ProfileModel hanna = ProfileCreator.populateHanna();
+    public static ProfileModel ryan = ProfileCreator.populateRyan();
+    public static ProfileModel enrique = ProfileCreator.populateEnrique();
+    public static ProfileModel greg = ProfileCreator.populateGreg();
+
+    public static ProfileModel currentUser = nitish;
 
     private Toolbar toolbar;
     ViewPager viewPager;
@@ -67,7 +77,7 @@ public class MainScreen extends AppCompatActivity {
 
         // Set up the navigation drawer
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
-        mAdapter = new NavDrawerAdapter(TITLES,ICONS, this);
+        mAdapter = new NavDrawerAdapter(TITLES,ICONS, currentUser.name, currentUser.picture_location, this);
         mRecyclerView.setAdapter(mAdapter);
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -91,6 +101,53 @@ public class MainScreen extends AppCompatActivity {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 
+
+        // Issue a notification for Enrique, Hanna and Ryan
+        if(currentUser.name.equals("Ryan"))
+        {
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.drawable.emergency)
+                            .setContentTitle("Tire Pressure Low")
+                            .setContentText("Get your tires checked soon!");
+            // Sets an ID for the notification
+            int mNotificationId = 001;
+            // Gets an instance of the NotificationManager service
+            NotificationManager mNotifyMgr =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            // Builds the notification and issues it.
+            mNotifyMgr.notify(mNotificationId, mBuilder.build());
+        }
+        if(currentUser.name.equals("Hanna"))
+        {
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.drawable.emergency)
+                            .setContentTitle("Engine unable to start")
+                            .setContentText("Go see a mechanic");
+            // Sets an ID for the notification
+            int mNotificationId = 001;
+            // Gets an instance of the NotificationManager service
+            NotificationManager mNotifyMgr =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            // Builds the notification and issues it.
+            mNotifyMgr.notify(mNotificationId, mBuilder.build());
+        }
+        if(currentUser.name.equals("Enrique"))
+        {
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.drawable.emergency)
+                            .setContentTitle("Theft Detected!")
+                            .setContentText("Your car might have been broken into!");
+            // Sets an ID for the notification
+            int mNotificationId = 001;
+            // Gets an instance of the NotificationManager service
+            NotificationManager mNotifyMgr =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            // Builds the notification and issues it.
+            mNotifyMgr.notify(mNotificationId, mBuilder.build());
+        }
     }
 
     @Override
@@ -119,9 +176,8 @@ public class MainScreen extends AppCompatActivity {
         }
         else if(item == "Profiles")
         {
-            Intent intent = new Intent(this, ProfileSelectorActivity.class);
+            Intent intent = new Intent(this, profile_activity.class);
             startActivity(intent);
-            //ProfileSelectorActivity
         }
         else if(item == "Stats")
         {
@@ -130,7 +186,7 @@ public class MainScreen extends AppCompatActivity {
         }
         else
         {
-            Intent intent = new Intent(this, profile_activity.class);
+            Intent intent = new Intent(this, ProfileSelectorActivity.class);
             startActivity(intent);
         }
     }

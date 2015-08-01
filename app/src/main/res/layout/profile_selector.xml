@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Nitish"
         android:id="@+id/b_change_nitish"
-        android:layout_gravity="right"
+        android:layout_gravity="center_horizontal"
         android:longClickable="false" />
 
     <Button
@@ -22,26 +22,26 @@
         android:layout_height="wrap_content"
         android:text="Hanna"
         android:id="@+id/b_change_hanna"
-        android:layout_gravity="right" />
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ryan"
         android:id="@+id/b_change_ryan"
-        android:layout_gravity="right" />
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enrique"
         android:id="@+id/b_change_enrique"
-        android:layout_gravity="right" />
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Greg"
         android:id="@+id/b_change_greg"
-        android:layout_gravity="right" />
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

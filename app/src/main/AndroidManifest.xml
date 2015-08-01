@@ -12,25 +12,36 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".profile_activity"
-            android:label="QualCar profile">
+            android:label="QualCar profile"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qualcar.com.qualcar.MainScreen" />
         </activity>
         <activity
             android:name=".AddRuleActivity"
-            android:label="QualCar add rule">
+            android:label="QualCar add rule"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qualcar.com.qualcar.MainScreen" />
         </activity>
         <activity
             android:name=".ProfileSelectorActivity"
-            android:label="QualCar switch profiles">
+            android:label="QualCar switch profiles"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qualcar.com.qualcar.MainScreen" />
         </activity>
         <activity
             android:name=".view.graph_activity"
-            android:label="@string/title_activity_graph_activity"
+            android:label="Usage Statistics"
             android:parentActivityName=".MainScreen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

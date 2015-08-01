@@ -33,6 +33,8 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
 
         mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         ArrayList<HashMap<String, String>> permission_array = new ArrayList<HashMap<String, String>>();
         ArrayList<HashMap<String, String>> rule_array = new ArrayList<HashMap<String, String>>();
