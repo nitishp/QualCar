@@ -28,11 +28,11 @@ public class MainScreen extends AppCompatActivity {
     public static String FAVORITES[] = {"LOCK CAR", "UNLOCK CAR", "START CAR"};
     public static String ACTIONS[] = {"LOCK CAR", "UNLOCK CAR", "START CAR", "STOP CAR", "DONE"};
 
-    public static ProfileModel nitish = ProfileCreator.populateNitish();
-    public static ProfileModel hanna = ProfileCreator.populateHanna();
-    public static ProfileModel ryan = ProfileCreator.populateRyan();
-    public static ProfileModel enrique = ProfileCreator.populateEnrique();
-    public static ProfileModel greg = ProfileCreator.populateGreg();
+    public static ProfileModel nitish = ProfileCreator.create_profiles(0);
+    public static ProfileModel hanna = ProfileCreator.create_profiles(1);
+    public static ProfileModel ryan = ProfileCreator.create_profiles(2);
+    public static ProfileModel enrique = ProfileCreator.create_profiles(3);
+    public static ProfileModel greg = ProfileCreator.create_profiles(4);
 
     public static ProfileModel currentUser = nitish;
 

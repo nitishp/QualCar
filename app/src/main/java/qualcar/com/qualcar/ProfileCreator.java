@@ -97,5 +97,4 @@ public class ProfileCreator {
         else
             return null;
         }
-    }
 }
