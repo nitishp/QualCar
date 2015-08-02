@@ -7,9 +7,11 @@ import java.util.Arrays;
  * Created by Greg-K`nox on 7/30/2015.
  */
 public class ProfileCreator {
+    public static ProfileModel nitish;
+    public static ProfileModel hanna, ryan, enrique, greg;
     public static ProfileModel create_profiles(int userID) {
         //person 1 Nitish
-        ProfileModel nitish = new ProfileModel("Nitish");
+        nitish = new ProfileModel("Nitish");
         nitish.set_id(1);
         nitish.set_picture(R.drawable.profile_pic_nitish);
         //creating array list of permissions
@@ -23,7 +25,7 @@ public class ProfileCreator {
         ));
         nitish.set_configuration(new Configuration(34, 27, "user_account", "English"));
          //person 2 Hanna
-        ProfileModel hanna = new ProfileModel("Hanna");
+        hanna = new ProfileModel("Hanna");
         hanna.set_id(2);
         hanna.set_picture(R.drawable.profile_pic_hanna);
         //creating array list of permissions
@@ -38,7 +40,7 @@ public class ProfileCreator {
         hanna.set_configuration(new Configuration(15, 1, "user_account", "French"));
 
         //person 3 Ryan
-        ProfileModel ryan = new ProfileModel("Ryan");
+        ryan = new ProfileModel("Ryan");
         ryan.set_id(3);
         ryan.set_picture(R.drawable.profile_pic_ryan);
         //creating array list of permissions
@@ -56,7 +58,7 @@ public class ProfileCreator {
         ));
         ryan.set_configuration(new Configuration(3, 99, "user_account", "Spanish"));
 
-        ProfileModel enrique = new ProfileModel("Enrique");
+        enrique = new ProfileModel("Enrique");
         enrique.set_id(4);
         enrique.set_picture(R.drawable.profile_pic_enrique);
         //creating array list of permissions
@@ -68,9 +70,13 @@ public class ProfileCreator {
                 new ArrayList<String>(Arrays.asList("Temp=70", "Dist=1")),
                 new ArrayList<String>(Arrays.asList("honk_horn", "start_car"))
         ));
+        enrique.add_contextual_rule(new contextual_object(1,
+                new ArrayList<String>(Arrays.asList("Temp=42", "Dist=2")),
+                new ArrayList<String>(Arrays.asList("honk_horn", "start_car"))
+        ));
         enrique.set_configuration(new Configuration(87, 27, "user_account", "English"));
         //person 5 Greg
-        ProfileModel greg = new ProfileModel("Greg");
+        greg = new ProfileModel("Greg");
         greg.set_id(5);
         greg.set_picture(R.drawable.profile_pic_greg);
         //creating array list of permissions

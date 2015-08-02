@@ -43,21 +43,35 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
         permission_list_view = (ListView) findViewById(R.id.permissions_list);
         rules_list_view = (ListView) findViewById(R.id.rules_list);
 
-        HashMap<String, String> map = new HashMap<String, String>();
+
+        for(int i = 0; i < MainScreen.currentUser.contextual_information.size(); ++i)
+        {
+            String conditions = "";
+            for(int j = 0; j < MainScreen.currentUser.contextual_information.get(i).get_condition().size(); ++j)
+            {
+                conditions += MainScreen.currentUser.contextual_information.get(i).get_condition().get(j);
+                if(j < (MainScreen.currentUser.contextual_information.get(i).get_condition().size() - 1))
+                {
+                    conditions += " AND ";
+                }
+            }
+
+            HashMap<String, String> map = new HashMap<String, String>();
+            map.put("itemId", Long.toString(MainScreen.currentUser.contextual_information.get(i).get_id()));
+            map.put("condition", conditions);
+            map.put("action", MainScreen.currentUser.contextual_information.get(i).get_action().get(0));
+
+            rule_array.add(map);
+        }
+
         HashMap<String, String> map2 = new HashMap<String, String>();
-
-        map.put("itemId", "1");
-        map.put("condition", "Temperature > 80 °F");
-        map.put("action", "Turn on the AC");
-
-        rule_array.add(map);
-
         map2.put("itemId", "1");
         map2.put("permission", "Access to the car");
 
         permission_array.add(map2);
 
         rules_row adapter = new rules_row(this, rule_array);
+        adapter.notifyDataSetChanged();
         rules_list_view.setAdapter(adapter);
 
         permission_row adapter2 = new permission_row(this, permission_array);
@@ -97,7 +111,27 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
                                int pos, long id) {
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
-        ProfileModel User = ProfileCreator.create_profiles(pos);
+        ProfileModel User;
+        if(pos == 0)
+        {
+            User = MainScreen.nitish;
+        }
+        else if(pos == 1)
+        {
+            User = MainScreen.hanna;
+        }
+        else if(pos == 2)
+        {
+            User = MainScreen.ryan;
+        }
+        else if(pos == 3)
+        {
+            User = MainScreen.enrique;
+        }
+        else
+        {
+            User = MainScreen.greg;
+        }
         populate_arrays(User);
     }
 
