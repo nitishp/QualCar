@@ -25,7 +25,6 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
     private ListView permission_list_view;
     private ListView rules_list_view;
     public static int id_num = 0;
-    //TODO: Use the users created by Greg
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

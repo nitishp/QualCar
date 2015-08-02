@@ -5,12 +5,12 @@
     <string name="action_settings">Settings</string>
     <string name="openDrawer">Open Drawer</string>
     <string name="closeDrawer">Close Drawer</string>
-    <string name="name_string">NAME</string>
-    <string name="permissions_string">PERMISSIONS</string>
-    <string name="rules_string">RULES</string>
+    <string name="name_string">Name</string>
+    <string name="permissions_string">Permissions</string>
+    <string name="rules_string">Rules</string>
     <string name="switch_string_on">ON</string>
     <string name="switch_string_off">OFF</string>
-    <string name="if_string">IF</string>
+    <string name="if_string">If</string>
     <string name="condition_string">condition1
         condition2
         condition3
@@ -24,13 +24,14 @@
         <item>Greg</item>
     </string-array>
     <string-array name="actions_string">
-        <item>LOCK CAR</item>
-        <item>UNLOCK CAR</item>
-        <item>START CAR</item>
-        <item>STOP CAR</item>
-        <item>ROLL DOWN</item>
+        <item>Lock Car</item>
+        <item>Unlock Car</item>
+        <item>Start Car</item>
+        <item>Stop Car</item>
+        <item>Roll Down Windows</item>
+        <item>Roll Up Windows</item>
     </string-array>
-    <string name="do_string">DO</string>
+    <string name="do_string">Do</string>
     <string name="action_string">action</string>
     <string name="title_activity_graph_activity">graph_activity</string>
     <string name="permission_string">PERMISSION 1</string>
