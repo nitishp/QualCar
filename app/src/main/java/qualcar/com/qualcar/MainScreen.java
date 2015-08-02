@@ -26,7 +26,7 @@ public class MainScreen extends AppCompatActivity {
     String TITLES[] = {"Add Rules", "Stats", "Profiles", "Switch User"};
     int ICONS[] = {R.drawable.config, R.drawable.stats_test, R.drawable.profiles, R.drawable.switch_user};
     public static String FAVORITES[] = {"LOCK CAR", "UNLOCK CAR", "START CAR"};
-    public static String ACTIONS[] = {"LOCK CAR", "UNLOCK CAR", "START CAR", "STOP CAR", "DONE"};
+    public static String ACTIONS[] = {"LOCK CAR", "UNLOCK CAR", "START CAR", "STOP CAR", "ROLL UP WINDOWS", "ROLL DOWN WINDOWS", "FIND CAR"};
 
     public static ProfileModel nitish = ProfileCreator.create_profiles(0);
     public static ProfileModel hanna = ProfileCreator.create_profiles(1);

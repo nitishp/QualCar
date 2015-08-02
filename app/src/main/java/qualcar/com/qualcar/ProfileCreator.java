@@ -15,13 +15,13 @@ public class ProfileCreator {
         nitish.set_id(1);
         nitish.set_picture(R.drawable.profile_pic_nitish);
         //creating array list of permissions
-        nitish.add_permission(new permission(1, true, "af9d8fad"));
-        nitish.add_permission(new permission(2, true, "k324k234"));
-        nitish.add_permission(new permission(3, true, "po132j44"));
+        nitish.add_permission(new permission(1, true, "Start Car"));
+        nitish.add_permission(new permission(2, false, "Change Radio Station"));
+        nitish.add_permission(new permission(3, true, "Open Door"));
         //creating array list of contextual information
         nitish.add_contextual_rule(new contextual_object(1,
-                new ArrayList<String>(Arrays.asList("Temp=73")),
-                new ArrayList<String>(Arrays.asList("open_car_door", "start_car"))
+                new ArrayList<String>(Arrays.asList("Temp=73F")),
+                new ArrayList<String>(Arrays.asList("Open Car Door", "Start Car"))
         ));
         nitish.set_configuration(new Configuration(34, 27, "user_account", "English"));
          //person 2 Hanna
@@ -29,13 +29,13 @@ public class ProfileCreator {
         hanna.set_id(2);
         hanna.set_picture(R.drawable.profile_pic_hanna);
         //creating array list of permissions
-        hanna.add_permission(new permission(1, true, "a68f4ass"));
-        hanna.add_permission(new permission(2, true, "afdaf654"));
-        hanna.add_permission(new permission(3, true, "zvcx5v45"));
+        hanna.add_permission(new permission(1, true, "Start Car"));
+        hanna.add_permission(new permission(2, true, "Change Radio Station"));
+        hanna.add_permission(new permission(3, true, "Open Door"));
         //creating array list of contextual information
         hanna.add_contextual_rule(new contextual_object(1,
-                new ArrayList<String>(Arrays.asList("Time=14:22")),
-                new ArrayList<String>(Arrays.asList("set_ac", "open_doors"))
+                new ArrayList<String>(Arrays.asList("Time=14:22 PM")),
+                new ArrayList<String>(Arrays.asList("Set A/C", "Open Doors"))
         ));
         hanna.set_configuration(new Configuration(15, 1, "user_account", "French"));
 
@@ -44,17 +44,17 @@ public class ProfileCreator {
         ryan.set_id(3);
         ryan.set_picture(R.drawable.profile_pic_ryan);
         //creating array list of permissions
-        ryan.add_permission(new permission(1, true, "684aff4a"));
-        ryan.add_permission(new permission(2, true, "htrej5dd"));
-        ryan.add_permission(new permission(3, true, "262g3kh4"));
+        ryan.add_permission(new permission(1, true, "Start Car"));
+        ryan.add_permission(new permission(2, true, "Change Radio Station"));
+        ryan.add_permission(new permission(3, true, "Open Door"));
         //creating array list of contextual information
         ryan.add_contextual_rule(new contextual_object(1,
-                new ArrayList<String>(Arrays.asList("Dist=7")),
-                new ArrayList<String>(Arrays.asList("honk_horn", "stop_car"))
+                new ArrayList<String>(Arrays.asList("Dist=7 ft")),
+                new ArrayList<String>(Arrays.asList("Honk Horn", "Stop Car"))
         ));
         ryan.add_contextual_rule(new contextual_object(1,
-                new ArrayList<String>(Arrays.asList("Time=7:22")),
-                new ArrayList<String>(Arrays.asList("set_ac","open_doors"))
+                new ArrayList<String>(Arrays.asList("Time=7:22 PM")),
+                new ArrayList<String>(Arrays.asList("Turn On A/C","Open Doors"))
         ));
         ryan.set_configuration(new Configuration(3, 99, "user_account", "Spanish"));
 
@@ -62,17 +62,17 @@ public class ProfileCreator {
         enrique.set_id(4);
         enrique.set_picture(R.drawable.profile_pic_enrique);
         //creating array list of permissions
-        enrique.add_permission(new permission(1, true, "hi525lk2"));
-        enrique.add_permission(new permission(2, true, "lkj22345"));
-        enrique.add_permission(new permission(3, true, "lk414314"));
+        enrique.add_permission(new permission(1, true, "Change Radio Station"));
+        enrique.add_permission(new permission(2, false, "Turn Off Car"));
+        enrique.add_permission(new permission(3, true, "Open Doors"));
         //creating array list of contextual information
         enrique.add_contextual_rule(new contextual_object(1,
-                new ArrayList<String>(Arrays.asList("Temp=70", "Dist=1")),
-                new ArrayList<String>(Arrays.asList("honk_horn", "start_car"))
+                new ArrayList<String>(Arrays.asList("Temp=70F", "Dist=1 ft.")),
+                new ArrayList<String>(Arrays.asList("Honk Horn", "Start Car"))
         ));
         enrique.add_contextual_rule(new contextual_object(1,
-                new ArrayList<String>(Arrays.asList("Temp=42", "Dist=2")),
-                new ArrayList<String>(Arrays.asList("honk_horn", "start_car"))
+                new ArrayList<String>(Arrays.asList("Temp=42F", "Dist=2 ft.")),
+                new ArrayList<String>(Arrays.asList("Honk Horn", "Start Car"))
         ));
         enrique.set_configuration(new Configuration(87, 27, "user_account", "English"));
         //person 5 Greg
@@ -80,13 +80,13 @@ public class ProfileCreator {
         greg.set_id(5);
         greg.set_picture(R.drawable.profile_pic_greg);
         //creating array list of permissions
-        greg.add_permission(new permission(1, true, "lk23l31k"));
-        greg.add_permission(new permission(2, true, "b3jb1k21"));
-        greg.add_permission(new permission(3, true, "m324kr13"));
+        greg.add_permission(new permission(1, true, "Roll Down Windows"));
+        greg.add_permission(new permission(2, false, "Start Car"));
+        greg.add_permission(new permission(3, true, "Unlock Car"));
         //creating array list of contextual information
         greg.add_contextual_rule(new contextual_object(1,
                 new ArrayList<String>(Arrays.asList("Dist=5")),
-                new ArrayList<String>(Arrays.asList("honk_horn"))
+                new ArrayList<String>(Arrays.asList("Honk Horn"))
         ));
         greg.set_configuration(new Configuration(37, 35, "user_account", "English"));
 

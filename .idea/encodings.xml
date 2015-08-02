@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/qualcar/com/qualcar/AddRuleSettings.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/qualcar/com/qualcar/ProfileCreator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/qualcar/com/qualcar/profile_activity.java" charset="UTF-8" />
   </component>
 </project>
