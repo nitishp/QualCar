@@ -23,6 +23,13 @@
         <item>Enrique</item>
         <item>Greg</item>
     </string-array>
+    <string-array name="actions_string">
+        <item>LOCK CAR</item>
+        <item>UNLOCK CAR</item>
+        <item>START CAR</item>
+        <item>STOP CAR</item>
+        <item>ROLL DOWN</item>
+    </string-array>
     <string name="do_string">DO</string>
     <string name="action_string">action</string>
     <string name="title_activity_graph_activity">graph_activity</string>

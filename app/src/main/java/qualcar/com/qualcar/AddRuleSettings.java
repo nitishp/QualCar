@@ -10,8 +10,11 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -23,7 +26,7 @@ import java.util.Calendar;
 /**
  * Created by Nitish on 7/29/2015.
  */
-public class AddRuleSettings extends Fragment {
+public class AddRuleSettings extends Fragment implements AdapterView.OnItemSelectedListener {
 
     public static TextView mTimeTextView;
 
@@ -32,6 +35,7 @@ public class AddRuleSettings extends Fragment {
     public static String finalDistance = "";
 
     private String rule = "";
+    private TextView ruleTv;
 
     // Class to show time picker dialog box
     public static class TimePickerFragment extends DialogFragment
@@ -67,8 +71,17 @@ public class AddRuleSettings extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_rule_settings, container, false);
 
-        TextView ruleTv = (TextView) view.findViewById(R.id.rule_type);
+        ruleTv = (TextView) view.findViewById(R.id.rule_type);
         rule = ruleTv.getText().toString();
+
+        //Set up the spinner
+        Spinner spinner = (Spinner) view.findViewById(R.id.action_list);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getActivity(), R.array.actions_string, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter3);
+        spinner.setOnItemSelectedListener(this);
 
         // Set up the buttons
 
@@ -189,5 +202,14 @@ public class AddRuleSettings extends Fragment {
             }
         });
         d.show();
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        ruleTv.setText(MainScreen.ACTIONS[pos]);
+        rule = MainScreen.ACTIONS[pos];
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
     }
 }
