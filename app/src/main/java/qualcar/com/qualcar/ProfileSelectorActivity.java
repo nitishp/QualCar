@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +35,7 @@ public class ProfileSelectorActivity extends AppCompatActivity {
         nitishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                profile_activity.id_num = 0;
                 MainScreen.currentUser = MainScreen.nitish;
                 Intent intent = new Intent(mActivity, MainScreen.class);
                 startActivity(intent);
@@ -43,6 +45,7 @@ public class ProfileSelectorActivity extends AppCompatActivity {
         ryanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                profile_activity.id_num = 2;
                 MainScreen.currentUser = MainScreen.ryan;
                 Intent intent = new Intent(mActivity, MainScreen.class);
                 startActivity(intent);
@@ -52,6 +55,7 @@ public class ProfileSelectorActivity extends AppCompatActivity {
         hannaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                profile_activity.id_num = 1;
                 MainScreen.currentUser = MainScreen.hanna;
                 Intent intent = new Intent(mActivity, MainScreen.class);
                 startActivity(intent);
@@ -61,6 +65,7 @@ public class ProfileSelectorActivity extends AppCompatActivity {
         enriqueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                profile_activity.id_num = 3;
                 MainScreen.currentUser = MainScreen.enrique;
                 Intent intent = new Intent(mActivity, MainScreen.class);
                 startActivity(intent);
@@ -70,6 +75,7 @@ public class ProfileSelectorActivity extends AppCompatActivity {
         gregButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                profile_activity.id_num = 4;
                 MainScreen.currentUser = MainScreen.greg;
                 Intent intent = new Intent(mActivity, MainScreen.class);
                 startActivity(intent);

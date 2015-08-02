@@ -24,6 +24,7 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
     private Toolbar mToolbar;
     private ListView permission_list_view;
     private ListView rules_list_view;
+    public static int id_num = 0;
     //TODO: Use the users created by Greg
 
     @Override
@@ -87,6 +88,7 @@ public class profile_activity extends AppCompatActivity implements AdapterView.O
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter3);
         spinner.setOnItemSelectedListener(this);
+        spinner.setSelection(id_num);
 
     }
 
