@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Pie Chart"
+            android:text="Driving Time"
             android:id="@+id/textView2" />
 
         <com.github.mikephil.charting.charts.PieChart
@@ -26,8 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Bar Graph"
-            android:id="@+id/textView4" />
+            android:text="Miles Driven"
+            android:id="@+id/textView4"
+            android:paddingTop="20dp" />
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/bar_chart"
@@ -38,8 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Line Graph"
-            android:id="@+id/textView6" />
+            android:text="Gas Consumed"
+            android:id="@+id/textView6"
+            android:paddingTop="20dp" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart1"

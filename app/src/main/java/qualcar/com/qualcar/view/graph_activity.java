@@ -43,11 +43,10 @@ public class graph_activity extends AppCompatActivity {
 
     private Toolbar mToolbar;
 
-    // TODO: Change Hardcoded values for piechart
     //  X: Names
     // Y: Percentages
     private float[] yData = { 5, 10, 15, 30, 40 };
-    private String[] xData = { "Sony", "Huawei", "LG", "Apple", "Samsung" };
+    private String[] xData = { "Nitish", "Hanna", "Ryan", "Enrique", "Greg" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +128,7 @@ public class graph_activity extends AppCompatActivity {
         yAxis.setDrawAxisLine(true);
         yAxis.setDrawGridLines(true);
         // no description text
-        mChart.setDescription("Temperature over the last few days");
+        mChart.setDescription("Gas consumed per day");
         // enable value highlighting
         mChart.setHighlightEnabled(true);
         // enable touch gestures
@@ -142,7 +141,7 @@ public class graph_activity extends AppCompatActivity {
         mChart.setDrawGridBackground(false);
         mChart.getAxisRight().setEnabled(false);
         // add data
-        setData(45, 100);
+        setData(5, 50);
         mChart.getLegend().setEnabled(false);
         mChart.animateXY(2000, 2000);
         // dont forget to refresh the drawing
@@ -172,7 +171,7 @@ public class graph_activity extends AppCompatActivity {
 
         ArrayList<String> xVals = new ArrayList<String>();
         for (int i = 0; i < count; i++) {
-            xVals.add((1990 +i) + "");
+            xVals.add((2010 +i) + "");
         }
 
         ArrayList<Entry> vals1 = new ArrayList<Entry>();
@@ -240,10 +239,10 @@ public class graph_activity extends AppCompatActivity {
         BarEntry v2e6 = new BarEntry(80.000f, 5); // Jun
         valueSet2.add(v2e6);
 
-        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Brand 1");
-        barDataSet1.setColor(Color.rgb(0, 155, 0));
-        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Brand 2");
-        barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
+        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Greg");
+        barDataSet1.setColor(getResources().getColor(R.color.greg_color));
+        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Ryan");
+        barDataSet2.setColor(getResources().getColor(R.color.ryan_color));
 
         dataSets = new ArrayList<>();
         dataSets.add(barDataSet1);
