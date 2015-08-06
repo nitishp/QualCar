@@ -5,40 +5,46 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <include
-            android:id="@+id/tool_bar"
-            layout="@layout/tool_bar">
-        </include>
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar">
+    </include>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/name_string"
+                android:id="@+id/name_string"
+                android:layout_weight="0.3"
+                android:textAlignment="center" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/name_string"
-                    android:id="@+id/name_string"
-                    android:layout_weight="0.3"
-                    android:textAlignment="center" />
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_list"
+                android:layout_weight="0.7"
+                android:gravity="center_vertical|center_horizontal" />
 
-                <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/user_list"
-                    android:layout_weight="0.7"
-                    android:gravity="center_vertical|center_horizontal" />
+        </LinearLayout>
 
-            </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,10 +57,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/permissions_list"
                 android:choiceMode="singleChoice"
-                android:layout_weight="40"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,8 +79,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rules_list"
-                android:choiceMode="singleChoice"
-                android:layout_weight="40" />
-
+                android:choiceMode="singleChoice"/>
         </LinearLayout>
     </LinearLayout>
+</LinearLayout>
